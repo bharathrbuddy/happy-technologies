@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Mail,
   Phone,
@@ -9,6 +10,62 @@ import {
 import { company } from '../data/siteData';
 
 export default function Contact() {
+  const [status, setStatus] = useState('');
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+
+    setStatus('Sending...');
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    formData.append(
+      'access_key',
+      '971feac9-a26b-4b50-bea4-98ed7d70b9b8'
+    );
+
+    formData.append(
+      'subject',
+      'New Enquiry - Happy Technologies'
+    );
+
+    formData.append(
+      'from_name',
+      'Happy Technologies Website'
+    );
+
+    try {
+      const response = await fetch(
+        'https://api.web3forms.com/submit',
+        {
+          method: 'POST',
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        form.reset();
+        setStatus('');
+        setShowSuccessModal(true);
+      } else {
+        setStatus(
+          'Unable to send your enquiry. Please try again.'
+        );
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      setStatus(
+        'Something went wrong. Please try again later.'
+      );
+    }
+  };
+
   return (
     <section className="page-section">
       <div className="container">
@@ -88,13 +145,14 @@ export default function Contact() {
 
           <form
             className="contact-form"
-            onSubmit={(event) => event.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <div className="form-row">
               <label>
                 Name
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your name"
                   required
                 />
@@ -104,6 +162,7 @@ export default function Contact() {
                 Email
                 <input
                   type="email"
+                  name="email"
                   placeholder="you@company.com"
                   required
                 />
@@ -114,28 +173,38 @@ export default function Contact() {
               Company
               <input
                 type="text"
+                name="company"
                 placeholder="Your company name"
               />
             </label>
 
             <label>
               What do you need?
-              <select defaultValue="">
+              <select
+                name="service"
+                defaultValue=""
+                required
+              >
                 <option value="" disabled>
                   Select a service
                 </option>
+
                 <option value="website">
                   Business Website
                 </option>
+
                 <option value="application">
                   Web Application
                 </option>
+
                 <option value="uiux">
                   UI / UX Development
                 </option>
+
                 <option value="maintenance">
                   Website Maintenance
                 </option>
+
                 <option value="other">
                   Something Else
                 </option>
@@ -145,18 +214,59 @@ export default function Contact() {
             <label>
               Tell us about your project
               <textarea
+                name="message"
                 placeholder="Tell us what you're looking to build..."
                 required
               />
             </label>
 
-            <button type="submit" className="btn btn-primary">
+            <button
+              type="submit"
+              className="btn btn-primary"
+            >
               Send Enquiry
               <ArrowRight size={17} />
             </button>
+
+            {status && (
+              <p className="form-status">
+                {status}
+              </p>
+            )}
           </form>
         </div>
       </div>
+
+      {showSuccessModal && (
+        <div
+          className="success-modal-overlay"
+          onClick={() => setShowSuccessModal(false)}
+        >
+          <div
+            className="success-modal"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="success-modal-icon">
+              ✓
+            </div>
+
+            <h2>Thank You!</h2>
+
+            <p>
+              Thank you for submitting your enquiry.
+              We’ll get back to you shortly.
+            </p>
+
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => setShowSuccessModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
