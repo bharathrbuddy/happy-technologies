@@ -19,7 +19,7 @@ import {
 export const company = {
   name: 'Happy Technologies',
   shortName: 'HT',
-  email: 'bharathrbuddy@gmail.com',
+  email: 'happytchn@gmail.com',
   phone: '+91 8050117343',
   location: 'India',
   whatsapp: '918050117343',
