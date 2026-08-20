@@ -17,7 +17,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="brand">
           <img
-            src="/public/images/logo.png"
+            src="/images/logo.png"
             alt="Happy Technologies"
             className="brand-logo"
           />

@@ -198,7 +198,7 @@ export default function Contact() {
                 </option>
 
                 <option value="uiux">
-                  UI / UX Development
+                  Software Application
                 </option>
 
                 <option value="maintenance">
@@ -206,7 +206,7 @@ export default function Contact() {
                 </option>
 
                 <option value="other">
-                  Something Else
+                  Digital Marketing
                 </option>
               </select>
             </label>
