@@ -63,7 +63,7 @@ export const services = [
     description:
       'We improve your website visibility through technical SEO, search-friendly structure, content optimization and best practices that help your business reach relevant customers.',
     icon: Search,
-    image: '/images/business-website.jpg',
+    image: '/images/seo-digital-visibility.png',
   },
 
   {
@@ -72,7 +72,7 @@ export const services = [
     description:
       'We help businesses reach the right audience through digital marketing strategies focused on brand awareness, online campaigns, customer engagement and lead generation.',
     icon: Megaphone,
-    image: '/images/business-website.jpg',
+    image: '/images/digital-marketing.png',
   },
 
   {
@@ -138,6 +138,13 @@ export const benefits = [
 ========================================================= */
 
 export const projects = [
+   {
+    category: 'WEB APPLICATION',
+    title: 'Business Dashboard',
+    description:
+      'A modern web application concept featuring dashboards, business metrics, data visualization and tools designed to help teams make better decisions.',
+    image: '/images/hero-dashboard.jpg',
+  },
   {
     category: 'INTERIOR DESIGN',
     title: 'Urban Spaces',
@@ -175,15 +182,7 @@ export const projects = [
     title: 'Growth Marketing',
     description:
       'A digital growth concept focused on improving online visibility, search performance, customer engagement and qualified lead generation.',
-    image: '/images/business-website.jpg',
-  },
-
-  {
-    category: 'WEB APPLICATION',
-    title: 'Business Dashboard',
-    description:
-      'A modern web application concept featuring dashboards, business metrics, data visualization and tools designed to help teams make better decisions.',
-    image: '/images/hero-dashboard.jpg',
+    image: '/images/seo-digital-visibility.png',
   },
 ];
 

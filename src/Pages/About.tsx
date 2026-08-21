@@ -14,16 +14,14 @@ export default function About() {
           </h1>
 
           <p>
-            Happy Technologies is a technology and digital development
-            business focused on helping companies establish, improve and
-            maintain their digital presence.
+            Happy Technologies is a technology and digital development business focused on helping companies establish, improve and maintain their digital presence. We build modern websites, custom software and scalable web applications, while providing SEO and digital marketing solutions that help businesses improve visibility, reach customers and grow online.
           </p>
         </div>
 
         <div className="about-feature">
           <div className="about-image">
             <img
-              src="/images/about.jpg"
+              src="/images/about-happy-technologies.png"
               alt="Happy Technologies"
             />
           </div>

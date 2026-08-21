@@ -19,7 +19,7 @@ export default function Footer() {
                 <strong>HAPPY TECHNOLOGIES</strong>
 
                 <p>
-                  Modern websites, web applications and digital
+                  Modern websites, web applications, software applications and digital
                   solutions for growing businesses.
                 </p>
               </div>
@@ -32,7 +32,7 @@ export default function Footer() {
             <Link to="/about">About</Link>
             <Link to="/services">Services</Link>
             <Link to="/portfolio">Portfolio</Link>
-            <Link to="/pricing">Pricing</Link>
+            <Link to="/contact">Contact</Link>
           </div>
 
           <div className="footer-column">
@@ -40,7 +40,9 @@ export default function Footer() {
 
             <Link to="/services">Business Websites</Link>
             <Link to="/services">Web Applications</Link>
-            <Link to="/services">UI / UX Development</Link>
+            <Link to="/services">Software Aplication</Link>
+            <Link to="/services">SEO</Link>
+            <Link to="/services">Digital Marketing</Link>
             <Link to="/services">Website Maintenance</Link>
           </div>
 

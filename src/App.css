@@ -3006,3 +3006,82 @@ svg {
 .success-modal button {
   display: inline-flex;
 }
+
+.mobile-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-inner {
+    position: relative;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition:
+      max-height 0.3s ease,
+      padding 0.3s ease;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .mobile-nav.mobile-nav-open {
+    max-height: 500px;
+    padding-top: 16px;
+    padding-bottom: 20px;
+  }
+
+  .mobile-nav a {
+    display: block;
+    padding: 12px 4px;
+  }
+
+  .mobile-nav .nav-cta {
+    margin-top: 8px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-nav .nav-cta {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 8px;
+    background: #2f80ed !important;
+    color: #ffffff !important;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .mobile-nav .nav-cta:hover {
+    background: #256dcc !important;
+    color: #ffffff !important;
+  }
+}

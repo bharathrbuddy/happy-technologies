@@ -31,9 +31,7 @@ export default function Home() {
             </h1>
 
             <p className="hero-description">
-              We design and develop modern websites, web applications
-              and digital experiences that help businesses establish
-              credibility, reach customers and grow online.
+              We design and develop modern websites, custom software and scalable web applications that help businesses establish, improve and maintain their digital presence. Our SEO and digital marketing solutions help increase online visibility, reach the right customers and drive sustainable business growth.
             </p>
 
             <div className="hero-actions">
