@@ -10,7 +10,7 @@ export default function About() {
 
           <h1>
             Technology that helps
-            <span> businesses move forward.</span>
+            <span>businesses move forward.</span>
           </h1>
 
           <p>
