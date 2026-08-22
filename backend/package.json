@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
+    "worker:dev": "wrangler dev",
+    "deploy": "wrangler deploy",
     "build": "tsc"
   },
   "keywords": [],
@@ -29,6 +31,7 @@
     "@types/pdfkit": "^0.17.6",
     "nodemon": "^3.1.14",
     "tsx": "^4.23.12",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "wrangler": "^4.125.0"
   }
 }
