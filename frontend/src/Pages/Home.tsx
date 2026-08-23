@@ -10,7 +10,6 @@ import {
   benefits,
   projects,
   processSteps,
-  faqs,
 } from '../data/siteData';
 
 export default function Home() {
@@ -362,31 +361,6 @@ export default function Home() {
               View Maintenance Plans
               <ArrowRight size={17} />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-
-      <section className="section section-muted">
-        <div className="container faq-container">
-          <div className="section-heading">
-            <span className="eyebrow">FAQ</span>
-
-            <h2>
-              Questions,
-              <span> answered.</span>
-            </h2>
-          </div>
-
-          <div className="faq-list">
-            {faqs.map((faq) => (
-              <details className="faq-item" key={faq.question}>
-                <summary>{faq.question}</summary>
-
-                <p>{faq.answer}</p>
-              </details>
-            ))}
           </div>
         </div>
       </section>
