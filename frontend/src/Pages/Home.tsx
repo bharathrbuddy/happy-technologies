@@ -12,9 +12,23 @@ import {
   processSteps,
 } from '../data/siteData';
 
+
+import { Helmet } from 'react-helmet-async';
+
 export default function Home() {
   return (
     <>
+
+          <Helmet>
+        <title>
+          Happy Technologies | Website & Software Development
+        </title>
+
+        <meta
+          name="description"
+          content="Happy Technologies provides website development, e-commerce, SEO, website maintenance and custom software development services."
+        />
+      </Helmet>
       {/* HERO */}
 
       <section className="hero">
