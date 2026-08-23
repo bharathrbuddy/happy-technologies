@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import { Router } from "express";
 import { GoogleGenAI } from "@google/genai";
 import { COMPANY_PROMPT } from "../promts/companyPrompt";
