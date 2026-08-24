@@ -21,7 +21,15 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // Check API key
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email.trim())) {
+      return res.status(400).json({
+        success: false,
+        message: "Please enter a valid email address.",
+      });
+    }
+
     const resendApiKey = process.env.RESEND_API_KEY;
 
     if (!resendApiKey) {
@@ -33,7 +41,17 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // Create Resend only after environment variables are loaded
+    const recipientEmail = process.env.EMAIL_TO;
+
+    if (!recipientEmail) {
+      console.error("EMAIL_TO is missing");
+
+      return res.status(500).json({
+        success: false,
+        message: "Recipient email is not configured.",
+      });
+    }
+
     const resend = new Resend(resendApiKey);
 
     const { data, error } = await resend.emails.send({
@@ -41,11 +59,9 @@ router.post("/", async (req, res) => {
         process.env.EMAIL_FROM ||
         "Happy Technologies <onboarding@resend.dev>",
 
-      to: [
-        process.env.EMAIL_USER || "",
-      ],
+      to: [recipientEmail.trim()],
 
-      replyTo: email,
+      replyTo: email.trim(),
 
       subject: `New Enquiry from ${name} - Happy Technologies`,
 
@@ -61,11 +77,7 @@ router.post("/", async (req, res) => {
         ">
 
           <div style="
-            background: linear-gradient(
-              135deg,
-              #2563eb,
-              #1d4ed8
-            );
+            background: #2563eb;
             color: white;
             padding: 30px;
           ">
@@ -83,9 +95,7 @@ router.post("/", async (req, res) => {
             </p>
           </div>
 
-          <div style="
-            padding: 30px;
-          ">
+          <div style="padding: 30px;">
 
             <h2 style="
               color: #1f2937;
@@ -213,10 +223,12 @@ router.post("/", async (req, res) => {
       success: true,
       message: "Enquiry sent successfully.",
     });
+
   } catch (error) {
     console.error("Contact email error:", error);
 
     return res.status(500).json({
+      success: false,
       message:
         "Unable to send your enquiry. Please try again later.",
     });
