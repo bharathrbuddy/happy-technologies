@@ -11,12 +11,23 @@ const Chatbot = () => {
   const [message, setMessage] = useState("");
   const [quotation, setQuotation] = useState<any>(null);
 
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      sender: "bot",
-      text: "Hi! 👋 I'm the Happy Technologies AI Assistant. How can I help you today?",
-    },
-  ]);
+const [messages, setMessages] = useState<Message[]>([
+  {
+    sender: "bot",
+    text: `Hi! 👋 I'm the Happy Technologies AI Assistant.
+
+💡 To get the correct quotation, describe your requirement clearly.
+
+Try asking:
+
+• I need a quotation for a 5 pages website
+• I need a quotation for SEO for 4 pages and 10 keywords
+• I need a quotation for an e-commerce website with 10 pages and 50 products
+• I need a quotation for website maintenance for 10 hours per month
+• I need a quotation for custom software with 10 features
+`,
+  },
+]);
 
   const sendMessage = async () => {
     const trimmedMessage = message.trim();
