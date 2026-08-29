@@ -163,7 +163,7 @@ export default function Contact() {
 
                 <div className="contact-social-links">
                   <a
-                    href="https://www.linkedin.com/in/happy-technologies-090b5242b/"
+                    href="https://www.linkedin.com/company/happy-techno/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Follow Happy Technologies on LinkedIn"
