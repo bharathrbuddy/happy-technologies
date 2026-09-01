@@ -16,59 +16,68 @@ export default function Contact() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [isSending, setIsSending] = useState(false);
 
-  const handleSubmit = async (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
-    event.preventDefault();
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+const handleSubmit = async (
+  event: React.FormEvent<HTMLFormElement>
+) => {
+  event.preventDefault();
 
-    const enquiryData = {
-      name: formData.get("name")?.toString().trim() || "",
-      email: formData.get("email")?.toString().trim() || "",
-      company: formData.get("company")?.toString().trim() || "",
-      service: formData.get("service")?.toString().trim() || "",
-      message: formData.get("message")?.toString().trim() || "",
-    };
+  const form = event.currentTarget;
+  const formData = new FormData(form);
 
-    setIsSending(true);
-    setStatus("Sending your enquiry...");
-
-    try {
-      const response = await fetch(
-        "https://happy-technologies-backend.onrender.com/api/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(enquiryData),
-        }
-      );
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        form.reset();
-        setStatus("");
-        setShowSuccessModal(true);
-      } else {
-        setStatus(
-          data.message ||
-            "Unable to send your enquiry. Please try again."
-        );
-      }
-    } catch (error) {
-      console.error("Contact form error:", error);
-
-      setStatus(
-        "Unable to connect to the server. Please try again later."
-      );
-    } finally {
-      setIsSending(false);
-    }
+  const enquiryData = {
+    name: formData.get("name")?.toString().trim() || "",
+    phone: formData.get("phone")?.toString().trim() || "",
+    countryCode:
+      formData.get("countryCode")?.toString().trim() || "+91",
+    email: formData.get("email")?.toString().trim() || "",
+    company: formData.get("company")?.toString().trim() || "",
+    service: formData.get("service")?.toString().trim() || "",
+    budget: formData.get("budget")?.toString().trim() || "",
+    timeline: formData.get("timeline")?.toString().trim() || "",
+    contactMethod:
+      formData.get("contactMethod")?.toString().trim() || "",
+    message: formData.get("message")?.toString().trim() || "",
   };
+
+  setIsSending(true);
+  setStatus("Sending your enquiry...");
+
+  try {
+    const response = await fetch(
+      "https://happy-technologies-backend.onrender.com/api/contact",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(enquiryData),
+      }
+    );
+
+    const data = await response.json();
+
+    if (response.ok && data.success) {
+      form.reset();
+      setStatus("");
+      setShowSuccessModal(true);
+    } else {
+      setStatus(
+        data.message ||
+          "Unable to send your enquiry. Please try again."
+      );
+    }
+  } catch (error) {
+    console.error("Contact form error:", error);
+
+    setStatus(
+      "Unable to connect to the server. Please try again later."
+    );
+  } finally {
+    setIsSending(false);
+  }
+};
+
 
   return (
     <>
@@ -188,112 +197,234 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <form
-              className="contact-form"
-              onSubmit={handleSubmit}
-            >
-              <div className="form-row">
-                <label>
-                  Name
+          <form
+  className="contact-form"
+  onSubmit={handleSubmit}
+>
+  <div className="form-row">
+    <label>
+      Name
 
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                  />
-                </label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Your name"
+        required
+      />
+    </label>
 
-                <label>
-                  Email
+    <label>
+      Phone Number
 
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="you@company.com"
-                    required
-                  />
-                </label>
-              </div>
+     <input
+  type="tel"
+  name="phone"
+  placeholder="98765 43210"
+  inputMode="numeric"
+  maxLength={11}
+  pattern="[6-9][0-9]{4}[ ]?[0-9]{5}"
+  title="Please enter a valid 10-digit Indian mobile number"
+  required
+/>
+    </label>
+  </div>
 
-              <label>
-                Company
+  <div className="form-row">
+    <label>
+      Email
 
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Your company name"
-                />
-              </label>
+      <input
+        type="email"
+        name="email"
+        placeholder="you@company.com"
+        required
+      />
+    </label>
 
-              <label>
-                What do you need?
+    <label>
+      Company
 
-                <select
-                  name="service"
-                  defaultValue=""
-                  required
-                >
-                  <option value="" disabled>
-                    Select a service
-                  </option>
+      <input
+        type="text"
+        name="company"
+        placeholder="Your company name"
+      />
+    </label>
+  </div>
 
-                  <option value="Business Website">
-                    Business Website
-                  </option>
+  <label>
+    What do you need?
 
-                  <option value="Web Application">
-                    Web Application
-                  </option>
+    <select
+      name="service"
+      defaultValue=""
+      required
+    >
+      <option value="" disabled>
+        Select a service
+      </option>
 
-                  <option value="Software Application">
-                    Software Application
-                  </option>
+      <option value="Business Website">
+        Business Website
+      </option>
 
-                  <option value="SEO Services">
-                    SEO Services
-                  </option>
+      <option value="Web Application">
+        Web Application
+      </option>
 
-                  <option value="Website Maintenance">
-                    Website Maintenance
-                  </option>
+      <option value="Software Application">
+        Software Application
+      </option>
 
-                  <option value="Digital Marketing">
-                    Digital Marketing
-                  </option>
+      <option value="SEO Services">
+        SEO Services
+      </option>
 
-                  <option value="Other">
-                    Other
-                  </option>
-                </select>
-              </label>
+      <option value="Website Maintenance">
+        Website Maintenance
+      </option>
 
-              <label>
-                Tell us about your project
+      <option value="Digital Marketing">
+        Digital Marketing
+      </option>
 
-                <textarea
-                  name="message"
-                  placeholder="Tell us what you're looking to build..."
-                  required
-                />
-              </label>
+      <option value="Mobile Application">
+        Mobile Application
+      </option>
 
-              <button
-                type="submit"
-                className="btn btn-primary"
-                disabled={isSending}
-              >
-                {isSending ? "Sending..." : "Send Enquiry"}
+      <option value="UI/UX Design">
+        UI/UX Design
+      </option>
 
-                {!isSending && <ArrowRight size={17} />}
-              </button>
+      <option value="Other">
+        Other
+      </option>
+    </select>
+  </label>
 
-              {status && (
-                <p className="form-status">
-                  {status}
-                </p>
-              )}
-            </form>
+  <div className="form-row">
+    <label>
+      Estimated Budget
+
+      <select
+        name="budget"
+        defaultValue=""
+      >
+        <option value="" disabled>
+          Select your budget
+        </option>
+
+        <option value="Below ₹25,000">
+          Below ₹25,000
+        </option>
+
+        <option value="₹25,000 - ₹50,000">
+          ₹25,000 - ₹50,000
+        </option>
+
+        <option value="₹50,000 - ₹1,00,000">
+          ₹50,000 - ₹1,00,000
+        </option>
+
+        <option value="₹1,00,000 - ₹3,00,000">
+          ₹1,00,000 - ₹3,00,000
+        </option>
+
+        <option value="₹3,00,000+">
+          ₹3,00,000+
+        </option>
+
+        <option value="Not sure">
+          Not sure
+        </option>
+      </select>
+    </label>
+
+    <label>
+      Project Timeline
+
+      <select
+        name="timeline"
+        defaultValue=""
+      >
+        <option value="" disabled>
+          When do you want to start?
+        </option>
+
+        <option value="Immediately">
+          Immediately
+        </option>
+
+        <option value="Within 1 month">
+          Within 1 month
+        </option>
+
+        <option value="1-3 months">
+          1-3 months
+        </option>
+
+        <option value="3-6 months">
+          3-6 months
+        </option>
+
+        <option value="Just exploring">
+          Just exploring
+        </option>
+      </select>
+    </label>
+  </div>
+
+  <label>
+    Preferred Contact Method
+
+    <select
+      name="contactMethod"
+      defaultValue=""
+    >
+      <option value="" disabled>
+        How should we contact you?
+      </option>
+
+      <option value="Phone">
+        Phone Call
+      </option>
+
+      <option value="WhatsApp">
+        WhatsApp
+      </option>
+
+      <option value="Email">
+        Email
+      </option>
+    </select>
+  </label>
+
+  <label>
+    Tell us about your project
+
+    <textarea
+      name="message"
+      placeholder="Tell us what you're looking to build..."
+      required
+    />
+  </label>
+
+  <button
+    type="submit"
+    className="btn btn-primary"
+    disabled={isSending}
+  >
+    {isSending ? "Sending..." : "Send Enquiry"}
+
+    {!isSending && <ArrowRight size={17} />}
+  </button>
+
+  {status && (
+    <p className="form-status">
+      {status}
+    </p>
+  )}
+</form>
           </div>
         </div>
 

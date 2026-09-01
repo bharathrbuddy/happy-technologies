@@ -1,5 +1,8 @@
+
 import "dotenv/config";
+
 import { Router } from "express";
+
 import { Resend } from "resend";
 
 const router = Router();
@@ -8,13 +11,18 @@ router.post("/", async (req, res) => {
   try {
     const {
       name,
+      phone,
+      countryCode,
       email,
       company,
       service,
+      budget,
+      timeline,
+      contactMethod,
       message,
     } = req.body;
 
-    if (!name || !email || !service || !message) {
+    if (!name || !phone || !email || !service || !message) {
       return res.status(400).json({
         success: false,
         message: "Please fill in all required fields.",
@@ -53,6 +61,8 @@ router.post("/", async (req, res) => {
     }
 
     const resend = new Resend(resendApiKey);
+
+    const fullPhone = `${countryCode || ""} ${phone || ""}`.trim();
 
     const { data, error } = await resend.emails.send({
       from:
@@ -114,13 +124,29 @@ router.post("/", async (req, res) => {
                   padding: 12px;
                   background: #f8fafc;
                   font-weight: bold;
-                  width: 160px;
+                  width: 180px;
                 ">
                   Name
                 </td>
 
                 <td style="padding: 12px;">
                   ${name}
+                </td>
+              </tr>
+
+              <tr>
+                <td style="
+                  padding: 12px;
+                  background: #f8fafc;
+                  font-weight: bold;
+                ">
+                  Phone
+                </td>
+
+                <td style="padding: 12px;">
+                  <a href="tel:${fullPhone}">
+                    ${fullPhone}
+                  </a>
                 </td>
               </tr>
 
@@ -165,6 +191,48 @@ router.post("/", async (req, res) => {
 
                 <td style="padding: 12px;">
                   ${service}
+                </td>
+              </tr>
+
+              <tr>
+                <td style="
+                  padding: 12px;
+                  background: #f8fafc;
+                  font-weight: bold;
+                ">
+                  Estimated Budget
+                </td>
+
+                <td style="padding: 12px;">
+                  ${budget || "Not provided"}
+                </td>
+              </tr>
+
+              <tr>
+                <td style="
+                  padding: 12px;
+                  background: #f8fafc;
+                  font-weight: bold;
+                ">
+                  Project Timeline
+                </td>
+
+                <td style="padding: 12px;">
+                  ${timeline || "Not provided"}
+                </td>
+              </tr>
+
+              <tr>
+                <td style="
+                  padding: 12px;
+                  background: #f8fafc;
+                  font-weight: bold;
+                ">
+                  Preferred Contact
+                </td>
+
+                <td style="padding: 12px;">
+                  ${contactMethod || "Not provided"}
                 </td>
               </tr>
 
