@@ -54,7 +54,7 @@ router.post(
          VALIDATION
       ========================= */
 
-      if (!jobTitle || !name || !experience) {
+      if (!name || !experience || !company) {
         return res.status(400).json({
           success: false,
           message: "Please fill in all required fields.",
