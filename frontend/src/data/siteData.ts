@@ -182,36 +182,42 @@ export const processSteps = [
     title: 'Discover',
     description:
       'We start by understanding your business, customers, competitors, requirements and objectives.',
+    image: '/images/process/discover.png',
   },
   {
     number: '02',
     title: 'Plan',
     description:
       'We define the website or application structure, content, functionality and technical approach.',
+    image: '/images/process/plan.png',
   },
   {
     number: '03',
     title: 'Design',
     description:
       'We create a clear visual experience that represents your business and communicates your value effectively.',
+    image: '/images/process/design.png',
   },
   {
     number: '04',
     title: 'Develop',
     description:
       'We turn the approved requirements into a responsive, reliable and performant digital product.',
+    image: '/images/process/develop.png',
   },
   {
     number: '05',
     title: 'Test',
     description:
       'We test the website or application across devices and browsers before preparing it for launch.',
+    image: '/images/process/test.png',
   },
   {
     number: '06',
     title: 'Launch',
     description:
       'We configure the domain, hosting, SSL, deployment and essential analytics before taking your project live.',
+    image: '/images/process/launch.png',
   },
 ];
 
@@ -277,4 +283,114 @@ export const contactServices = [
   'SEO & Digital Visibility',
   'Digital Marketing',
   'Website Maintenance & Support',
+];
+
+export const lighthouseReport = {
+  performance: 97,
+  accessibility: 94,
+  bestPractices: 100,
+  seo: 92,
+  report: '/reports/happy-technologies-lighthouse.html',
+};
+
+export const careerOpenings = [
+  {
+    id: 'frontend-manager',
+    title: 'Frontend Manager',
+    type: 'Full-time / Contract',
+    location: 'Bengaluru / Hybrid',
+    skills: [
+      'React',
+      'Angular',
+      'TypeScript',
+      'UI Architecture',
+      'Frontend Development',
+    ],
+    description:
+      'Lead frontend development across client projects and take ownership of frontend architecture, development standards and technical quality. You will guide developers, conduct code reviews, establish UI best practices and work closely with designers, backend developers and business stakeholders to deliver scalable, responsive and high-quality web applications.',
+    responsibilities: [
+      'Lead frontend development across multiple web projects.',
+      'Define and maintain frontend architecture and development standards.',
+      'Review code and ensure quality, performance and maintainability.',
+      'Guide and mentor frontend developers.',
+      'Work closely with UI/UX designers and backend developers.',
+      'Ensure responsive, accessible and cross-browser compatible experiences.',
+      'Identify technical challenges and provide practical solutions.',
+    ],
+    requirements: [
+      'Strong experience in frontend development.',
+      'Hands-on experience with React or Angular.',
+      'Strong knowledge of JavaScript and TypeScript.',
+      'Good understanding of responsive web design and UI architecture.',
+      'Experience with Git and modern frontend development practices.',
+      'Good communication and problem-solving skills.',
+    ],
+  },
+
+  {
+    id: 'web-developer',
+    title: 'Web Developer',
+    type: 'Full-time / Contract',
+    location: 'Bengaluru / Hybrid',
+    skills: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'React',
+      'Responsive Design',
+    ],
+    description:
+      'Build responsive websites and modern web applications for businesses across different industries. You will develop user interfaces, implement website functionality, integrate APIs, optimize performance and ensure a consistent experience across desktop, tablet and mobile devices.',
+    responsibilities: [
+      'Develop responsive websites and web applications.',
+      'Convert designs and requirements into functional user interfaces.',
+      'Write clean, maintainable and reusable frontend code.',
+      'Integrate APIs and third-party services.',
+      'Optimize websites for performance and usability.',
+      'Test websites across different browsers and devices.',
+      'Work with designers and other developers to deliver projects.',
+    ],
+    requirements: [
+      'Good knowledge of HTML, CSS and JavaScript.',
+      'Experience with React or similar frontend frameworks.',
+      'Understanding of responsive web design.',
+      'Basic knowledge of Git and version control.',
+      'Understanding of REST APIs is an advantage.',
+      'Strong attention to detail and willingness to learn.',
+    ],
+  },
+
+  {
+    id: 'seo-specialist',
+    title: 'SEO Specialist',
+    type: 'Full-time / Contract',
+    location: 'Bengaluru / Hybrid',
+    skills: [
+      'Keyword Research',
+      'On-Page SEO',
+      'Technical SEO',
+      'Google Search Console',
+      'Google Analytics',
+    ],
+    description:
+      'Plan and execute SEO strategies to improve the organic visibility of our clients and their websites. You will conduct keyword and competitor research, optimize website content and metadata, improve internal linking and technical SEO, monitor search performance and work with developers and content teams to implement SEO recommendations.',
+    responsibilities: [
+      'Conduct keyword research and competitor analysis.',
+      'Implement on-page SEO improvements.',
+      'Optimize titles, descriptions, headings and website content.',
+      'Identify and communicate technical SEO issues.',
+      'Monitor website performance using Google Search Console and analytics tools.',
+      'Work with developers to implement technical SEO recommendations.',
+      'Track rankings, organic traffic and other SEO performance metrics.',
+      'Prepare SEO reports and recommendations for clients.',
+    ],
+    requirements: [
+      'Understanding of SEO fundamentals and best practices.',
+      'Experience with keyword research and on-page optimization.',
+      'Knowledge of technical SEO concepts.',
+      'Experience with Google Search Console and Google Analytics.',
+      'Basic understanding of HTML and website structure.',
+      'Good analytical and communication skills.',
+    ],
+  },
 ];

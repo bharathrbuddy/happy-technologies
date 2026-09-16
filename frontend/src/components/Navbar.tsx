@@ -5,8 +5,9 @@ import { Menu, X } from 'lucide-react';
 const navigation = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Services', path: '/services' },
+  { label: 'Solutions', path: '/solutions' },
   { label: 'Portfolio', path: '/portfolio' },
+   { label: 'Careers', path: '/careers' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'Contact', path: '/contact' },
 ];

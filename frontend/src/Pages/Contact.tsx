@@ -201,6 +201,7 @@ const handleSubmit = async (
   className="contact-form"
   onSubmit={handleSubmit}
 >
+  <h3>We look forward to speaking with you!</h3>
   <div className="form-row">
     <label>
       Name

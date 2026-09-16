@@ -38,15 +38,16 @@ export default function Footer() {
             <h4>Company</h4>
 
             <Link to="/about">About</Link>
-            <Link to="/services">Services</Link>
+            <Link to="/solutions">Solutions</Link>
             <Link to="/portfolio">Portfolio</Link>
+            <Link to="/careers">Careers</Link>
             <Link to="/pricing">Pricing</Link>
             <Link to="/contact">Contact</Link>
           </div>
 
           {/* Services */}
           <div className="footer-column">
-            <h4>Services</h4>
+            <h4>Solutions</h4>
 
             <Link to="/services">Business Websites</Link>
             <Link to="/services">Web Applications</Link>

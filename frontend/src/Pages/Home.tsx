@@ -1,35 +1,31 @@
+import { ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import {
-  ArrowRight,
-  ArrowUpRight,
-  CheckCircle2,
-} from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 import {
   services,
   benefits,
   projects,
-  processSteps,
+  lighthouseReport,
 } from '../data/siteData';
-
-
-import { Helmet } from 'react-helmet-async';
 
 export default function Home() {
   return (
     <>
-
-          <Helmet>
+      <Helmet>
         <title>
           Happy Technologies | Website & Software Development
         </title>
 
         <meta
           name="description"
-          content="Happy Technologies provides website development, e-commerce, SEO, website maintenance and custom software development services."
+          content="Happy Technologies provides website development, custom software, web application development, SEO, digital marketing and website maintenance services for businesses."
         />
       </Helmet>
-      {/* HERO */}
+
+      {/* =====================================================
+          HERO
+      ===================================================== */}
 
       <section className="hero">
         <div className="hero-background" />
@@ -39,12 +35,14 @@ export default function Home() {
             <span className="eyebrow">HAPPY TECHNOLOGIES</span>
 
             <h1>
-              Build a digital presence
-              <span> your business can grow with.</span>
+              Website & software development
+              <span> for growing businesses.</span>
             </h1>
 
             <p className="hero-description">
-              We design and develop modern websites, custom software and scalable web applications that help businesses establish, improve and maintain their digital presence. Our SEO and digital marketing solutions help increase online visibility, reach the right customers and drive sustainable business growth.
+              We design and develop modern websites, custom software
+              and scalable web applications that help businesses build
+              a strong digital presence.
             </p>
 
             <div className="hero-actions">
@@ -68,7 +66,7 @@ export default function Home() {
           <div className="hero-visual">
             <img
               src="/images/hero-dashboard.jpg"
-              alt="Happy Technologies digital experience"
+              alt="Happy Technologies web application development"
             />
 
             <div className="floating-card">
@@ -79,38 +77,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* INTRO */}
-
-      <section className="section">
-        <div className="container intro-grid">
-          <div>
-            <span className="eyebrow">WHAT WE DO</span>
-
-            <h2>
-              More than just building
-              <span> websites.</span>
-            </h2>
-          </div>
-
-          <div className="intro-copy">
-            <p>
-              Your website is often the first interaction a potential
-              customer has with your business. It needs to communicate
-              who you are, what you offer and why customers should trust
-              you.
-            </p>
-
-            <p>
-              At Happy Technologies, we combine thoughtful UI/UX
-              development, modern frontend technologies and practical
-              business thinking to create digital experiences that are
-              useful, reliable and built for long-term growth.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
+      {/* =====================================================
+          SERVICES
+      ===================================================== */}
 
       <section className="section section-muted">
         <div className="container">
@@ -135,9 +104,11 @@ export default function Home() {
               const Icon = service.icon;
 
               return (
-                <article className="service-card" key={service.number}>
+                <article
+                  className="service-card"
+                  key={service.number}
+                >
                   <div className="service-top">
-
                     <div className="service-icon">
                       <Icon size={23} />
                     </div>
@@ -158,72 +129,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* IMAGE SECTION */}
+      {/* =====================================================
+          WHY HAPPY TECHNOLOGIES
+      ===================================================== */}
 
       <section className="section">
         <div className="container">
-          <div className="large-image-section">
-            <img
-              src="/images/business-website.jpg"
-              alt="Modern business website"
-            />
-
-            <div className="large-image-overlay">
-              <span className="eyebrow">
-                DIGITAL PRESENCE
-              </span>
-
-              <h2>
-                Your website should work as hard
-                <span> as your business.</span>
-              </h2>
-
-              <p>
-                We don't build websites simply to fill a screen. We
-                create digital experiences that communicate your value,
-                build customer confidence and make it easier for people
-                to take the next step.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROCESS */}
-
-      <section className="section section-muted">
-        <div className="container">
           <div className="section-heading">
-            <span className="eyebrow">OUR PROCESS</span>
+            <span className="eyebrow">
+              WHY HAPPY TECHNOLOGIES
+            </span>
 
             <h2>
-              From the first idea
-              <span> to launch.</span>
+              Technology without
+              <span> the complexity.</span>
             </h2>
 
             <p>
-              A clear process helps us understand your business,
-              minimize unnecessary complexity and deliver a website
-              that matches your objectives.
+              We focus on practical technology that makes your
+              business easier to operate and your customers'
+              experience better.
             </p>
           </div>
 
-          <div className="process-grid">
-            {processSteps.map((step) => (
-              <article className="process-card" key={step.number}>
+          <div className="benefits-grid">
+            {benefits.map((benefit) => {
+              const Icon = benefit.icon;
 
-                <h3>{step.title}</h3>
+              return (
+                <article
+                  className="benefit-card"
+                  key={benefit.title}
+                >
+                  <div className="benefit-icon">
+                    <Icon size={21} />
+                  </div>
 
-                <p>{step.description}</p>
-              </article>
-            ))}
+                  <h3>{benefit.title}</h3>
+
+                  <p>{benefit.description}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* PORTFOLIO */}
+      {/* =====================================================
+          SELECTED WORK
+      ===================================================== */}
 
-      <section className="section">
+      <section className="section section-muted">
         <div className="container">
           <div className="section-heading-row">
             <div>
@@ -242,8 +198,11 @@ export default function Home() {
           </div>
 
           <div className="portfolio-grid">
-            {projects.map((project) => (
-              <article className="portfolio-card" key={project.title}>
+            {projects.slice(0, 3).map((project) => (
+              <article
+                className="portfolio-card"
+                key={project.title}
+              >
                 <div className="portfolio-image">
                   <img
                     src={project.image}
@@ -276,110 +235,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY US */}
+      {/* =====================================================
+          PERFORMANCE & QUALITY
+      ===================================================== */}
 
-      <section className="section section-muted">
+      <section className="section lighthouse-section">
         <div className="container">
-          <div className="section-heading">
-            <span className="eyebrow">
-              WHY HAPPY TECHNOLOGIES
-            </span>
+          <div className="lighthouse-content">
 
-            <h2>
-              Technology without
-              <span> the complexity.</span>
-            </h2>
-
-            <p>
-              We focus on practical technology that makes your business
-              easier to operate and your customers' experience better.
-            </p>
-          </div>
-
-          <div className="benefits-grid">
-            {benefits.map((benefit) => {
-              const Icon = benefit.icon;
-
-              return (
-                <article className="benefit-card" key={benefit.title}>
-                  <div className="benefit-icon">
-                    <Icon size={21} />
-                  </div>
-
-                  <h3>{benefit.title}</h3>
-
-                  <p>{benefit.description}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* MAINTENANCE */}
-
-      <section className="section">
-        <div className="container maintenance-grid">
-          <div className="maintenance-image">
-            <img
-              src="/images/maintenance.jpg"
-              alt="Website maintenance and monitoring"
-              loading="lazy"
-            />
-          </div>
-
-          <div className="maintenance-content">
-            <span className="eyebrow">
-              WEBSITE MAINTENANCE
-            </span>
-
-            <h2>
-              Your website shouldn't become
-              <span> outdated after launch.</span>
-            </h2>
-
-            <p>
-              A website is a living part of your business. Content
-              changes, technology evolves, security updates become
-              necessary and new requirements appear.
-            </p>
-
-            <p>
-              Our maintenance service gives you ongoing technical
-              support without the cost of hiring a full-time developer.
-            </p>
-
-            <div className="maintenance-points">
-              <span>
-                <CheckCircle2 size={17} />
-                Content updates
+            <div className="section-heading">
+              <span className="eyebrow">
+                PERFORMANCE & QUALITY
               </span>
 
-              <span>
-                <CheckCircle2 size={17} />
-                Bug fixes
-              </span>
+              <h2>
+                Built to perform.
+                <span> Designed to deliver.</span>
+              </h2>
 
-              <span>
-                <CheckCircle2 size={17} />
-                Security updates
-              </span>
-
-              <span>
-                <CheckCircle2 size={17} />
-                Performance improvements
-              </span>
+              <p>
+                We believe a great website should be fast,
+                accessible, reliable and ready for search engines.
+                Our website is tested using Google Lighthouse.
+              </p>
             </div>
 
-            <Link to="/pricing" className="btn btn-secondary">
-              View Maintenance Plans
-              <ArrowRight size={17} />
-            </Link>
+            <div className="lighthouse-grid">
+
+              <div className="lighthouse-card">
+                <strong>
+                  {lighthouseReport.performance}
+                </strong>
+                <span>Performance</span>
+              </div>
+
+              <div className="lighthouse-card">
+                <strong>
+                  {lighthouseReport.accessibility}
+                </strong>
+                <span>Accessibility</span>
+              </div>
+
+              <div className="lighthouse-card">
+                <strong>
+                  {lighthouseReport.bestPractices}
+                </strong>
+                <span>Best Practices</span>
+              </div>
+
+              <div className="lighthouse-card">
+                <strong>
+                  {lighthouseReport.seo}
+                </strong>
+                <span>SEO</span>
+              </div>
+
+            </div>
+
+            <a
+              href={lighthouseReport.report}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lighthouse-link"
+            >
+              View Full Performance Report →
+            </a>
+
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* =====================================================
+          FINAL CTA
+      ===================================================== */}
 
       <section className="section">
         <div className="container final-cta">
@@ -393,8 +321,9 @@ export default function Home() {
           </h2>
 
           <p>
-            Tell us about your business, your idea or the website you
-            want to improve. We'll help you understand the next steps.
+            Tell us about your business, your idea or the website
+            you want to improve. We'll help you understand the
+            next steps.
           </p>
 
           <Link to="/contact" className="btn btn-primary">

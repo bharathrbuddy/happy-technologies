@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { services } from "../data/siteData";
 
-export default function Services() {
+export default function Solutions() {
   return (
     <>
       <Helmet>
         <title>
-          Services | Website, SEO & Software Development | Happy Technologies
+          Solutions | Website, SEO & Software Development | Happy Technologies
         </title>
 
-        <meta
-          name="description"
-          content="Explore Happy Technologies services including website development, e-commerce solutions, SEO services, website maintenance, digital marketing and custom software development."
-        />
+       
+       <meta
+  name="description"
+  content="Happy Technologies provides website development, web application development, software development, SEO and digital marketing services for businesses."
+/>
       </Helmet>
 
       <section className="page-section">

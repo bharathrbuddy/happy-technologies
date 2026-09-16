@@ -16,10 +16,10 @@ function Pricing() {
           Pricing | Website, SEO & Software Development | Happy Technologies
         </title>
 
-        <meta
-          name="description"
-          content="Explore Happy Technologies pricing for website development, e-commerce websites, SEO services, website maintenance and custom software development. Get an instant customised quotation."
-        />
+       <meta
+  name="description"
+  content="Happy Technologies provides website development, web application development, software development, SEO and digital marketing services for businesses."
+/>
       </Helmet>
 
       <div className="pricing-page">

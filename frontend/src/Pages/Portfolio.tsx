@@ -9,10 +9,10 @@ export default function Portfolio() {
       <Helmet>
         <title>Portfolio | Happy Technologies Projects & Solutions</title>
 
-        <meta
-          name="description"
-          content="Explore Happy Technologies portfolio and concept projects showcasing website development, e-commerce solutions, custom software and modern digital experiences."
-        />
+       <meta
+  name="description"
+  content="Happy Technologies provides website development, web application development, software development, SEO and digital marketing services for businesses."
+/>
       </Helmet>
 
       <section className="page-section">

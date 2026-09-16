@@ -2,43 +2,62 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
+import { processSteps } from '../data/siteData';
+
 export default function About() {
   return (
     <>
       <Helmet>
-        <title>About Us | Happy Technologies</title>
+        <title>
+          About Happy Technologies | Web & Software Development
+        </title>
 
         <meta
           name="description"
-          content="Learn about Happy Technologies and our mission to provide professional website development, e-commerce, SEO, website maintenance and custom software solutions."
+          content="Learn about Happy Technologies, our approach to website development, custom software, web applications, SEO and digital solutions for growing businesses."
         />
       </Helmet>
 
+      {/* =====================================================
+          PAGE INTRO
+      ===================================================== */}
+
       <section className="page-section">
         <div className="container">
+
           <div className="page-heading">
             <span className="eyebrow">ABOUT US</span>
 
             <h1>
               Technology that helps
-              <span>businesses move forward.</span>
+              <span> businesses move forward.</span>
             </h1>
 
             <p>
-              Happy Technologies is a technology and digital development business focused on helping companies establish, improve and maintain their digital presence. We build modern websites, custom software and scalable web applications, while providing SEO and digital marketing solutions that help businesses improve visibility, reach customers and grow online.
+              Happy Technologies is a technology and digital
+              development business focused on helping companies
+              establish, improve and maintain their digital
+              presence.
             </p>
           </div>
 
+          {/* =================================================
+              OUR APPROACH
+          ================================================= */}
+
           <div className="about-feature">
+
             <div className="about-image">
               <img
                 src="/images/about-happy-technologies.png"
-                alt="Happy Technologies"
+                alt="Happy Technologies digital solutions"
               />
             </div>
 
             <div className="about-content">
-              <span className="eyebrow">OUR APPROACH</span>
+              <span className="eyebrow">
+                OUR APPROACH
+              </span>
 
               <h2>
                 Simple technology.
@@ -46,25 +65,22 @@ export default function About() {
               </h2>
 
               <p>
-                We believe technology should solve problems rather than
-                create unnecessary complexity.
+                Your website or digital product should solve
+                business problems, not create unnecessary
+                complexity.
               </p>
 
               <p>
-                Whether you're a small business launching your first
-                website or an established company looking to improve an
-                existing digital product, we focus on understanding what
-                your business actually needs before recommending a
-                solution.
-              </p>
-
-              <p>
-                Our goal is to create digital experiences that are
-                professional, reliable, easy to use and maintainable for
-                the long term.
+                We start by understanding what your business
+                actually needs before recommending a solution.
+                Whether you are launching your first website or
+                improving an existing digital product, our focus
+                remains on creating something useful, reliable
+                and easy to maintain.
               </p>
 
               <div className="about-points">
+
                 <span>
                   <CheckCircle2 size={17} />
                   Business-focused solutions
@@ -84,30 +100,92 @@ export default function About() {
                   <CheckCircle2 size={17} />
                   Long-term technical support
                 </span>
+
               </div>
             </div>
+
           </div>
 
+          {/* =================================================
+              HOW WE WORK
+          ================================================= */}
+
+          <div className="about-process">
+
+            <div className="section-heading">
+              <span className="eyebrow">
+                HOW WE WORK
+              </span>
+
+              <h2>
+                From the first idea
+                <span> to launch.</span>
+              </h2>
+
+              <p>
+                A clear process helps us understand your business,
+                reduce unnecessary complexity and deliver a
+                solution aligned with your objectives.
+              </p>
+            </div>
+
+            <div className="process-grid">
+
+              {processSteps.map((step) => (
+                <article
+                  className="process-card"
+                  key={step.number}
+                >
+                   <img
+                    src={step.image}
+                    alt={step.title}
+                    loading="lazy"
+                  />
+                  <h3>{step.title}</h3>
+
+                  <p>{step.description}</p>
+                </article>
+              ))}
+
+            </div>
+
+          </div>
+
+          {/* =================================================
+              OUR MISSION
+          ================================================= */}
+
           <div className="about-statement">
-            <span className="eyebrow">OUR MISSION</span>
+
+            <span className="eyebrow">
+              OUR MISSION
+            </span>
 
             <h2>
               Make professional technology
-              <span> accessible to growing businesses.</span>
+              <span>
+                {' '}accessible to growing businesses.
+              </span>
             </h2>
 
             <p>
-              A strong digital presence should not be limited to large
-              companies. We want to help businesses of different sizes
-              build websites and digital products that represent them
-              professionally and help them compete online.
+              A strong digital presence should not be limited to
+              large companies. We want to help businesses of
+              different sizes build websites and digital products
+              that represent them professionally and help them
+              compete online.
             </p>
 
-            <Link to="/contact" className="btn btn-primary">
+            <Link
+              to="/contact"
+              className="btn btn-primary"
+            >
               Work With Us
               <ArrowRight size={17} />
             </Link>
+
           </div>
+
         </div>
       </section>
     </>
