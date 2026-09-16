@@ -8,6 +8,7 @@ import cors from "cors";
 import chatRouter from "./routes/chat";
 import quotationRouter from "./routes/quotation";
 import contactRouter from "./routes/contact";
+import careerRoutes from "./routes/careers";
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.get("/", (_req, res) => {
 app.use("/api/chat", chatRouter);
 app.use("/api/quotation", quotationRouter);
 app.use("/api/contact", contactRouter);
+app.use("/api/career", careerRoutes);
 
 const PORT = process.env.PORT || 5000;
 
