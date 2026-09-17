@@ -34,14 +34,6 @@ const API_URL =
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
-
-const ALLOWED_FILE_TYPES = [
-  'application/pdf',
-  'application/msword',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-];
-
-
 const ALLOWED_EXTENSIONS = [
   '.pdf',
   '.doc',
@@ -222,63 +214,48 @@ export default function Careers() {
       file.name.toLowerCase();
 
 
-    const hasValidExtension =
-      ALLOWED_EXTENSIONS.some(
-        (extension) =>
-          fileName.endsWith(extension)
-      );
+const hasValidExtension =
+  ALLOWED_EXTENSIONS.some(
+    (extension) =>
+      fileName.endsWith(extension)
+  );
 
 
-    const hasValidMimeType =
-      ALLOWED_FILE_TYPES.includes(
-        file.type
-      );
+if (!hasValidExtension) {
+
+  setResume(null);
+
+  setErrors((previous) => ({
+    ...previous,
+    resume:
+      'Please upload a PDF, DOC or DOCX file.',
+  }));
+
+  event.target.value = '';
+
+  return;
+
+}
 
 
-    if (
-      !hasValidExtension ||
-      !hasValidMimeType
-    ) {
+if (file.size > MAX_FILE_SIZE) {
 
-      setResume(null);
+  setResume(null);
 
+  setErrors((previous) => ({
+    ...previous,
+    resume:
+      'Resume size must be less than 5MB.',
+  }));
 
-      setErrors((previous) => ({
-        ...previous,
-        resume:
-          'Please upload a PDF, DOC or DOCX file.',
-      }));
+  event.target.value = '';
 
+  return;
 
-      event.target.value = '';
-
-
-      return;
-
-    }
+}
 
 
-    if (file.size > MAX_FILE_SIZE) {
-
-      setResume(null);
-
-
-      setErrors((previous) => ({
-        ...previous,
-        resume:
-          'Resume size must be less than 5MB.',
-      }));
-
-
-      event.target.value = '';
-
-
-      return;
-
-    }
-
-
-    setResume(file);
+setResume(file);
 
   };
 
