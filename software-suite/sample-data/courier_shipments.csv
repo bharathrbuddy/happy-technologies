@@ -1,0 +1,4 @@
+﻿shipment_number,tracking_number,sender_name,sender_phone,sender_address,recipient_name,recipient_phone,recipient_address,package_description,weight_kg,service_type,pickup_date,expected_delivery_date,status,charge,payment_status,delivery_notes
+SHP-1001,HBS-IN-100001,Rohan Logistics,9876511001,"21 Industrial Area, Bengaluru",Ananya Retail,9876511002,"4 Market Road, Chennai",Retail cartons,12.5,express,2026-10-13,2026-10-15,in_transit,1450,paid,Handle with care
+SHP-1002,HBS-IN-100002,Kiran Exports,9876511003,"8 Port Road, Mumbai",Meera Nair,9876501002,"8 Lake View, Mysuru",Documents,0.5,standard,2026-10-13,2026-10-16,picked_up,280,unpaid,Keep dry
+SHP-1003,HBS-IN-100003,Ananya Retail,9876511002,"4 Market Road, Chennai",Rohan Logistics,9876511001,"21 Industrial Area, Bengaluru",Electronic parts,4.2,express,2026-10-12,2026-10-14,delivered,890,paid,Delivered to reception

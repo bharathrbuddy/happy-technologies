@@ -1,0 +1,4 @@
+﻿property_code,property_name,property_type,listing_type,address,city,state,bedrooms,bathrooms,area_sq_ft,price,status,owner_name,owner_phone
+PROP-1001,Lakeview Residency,apartment,sale,12 Outer Ring Road,Bengaluru,Karnataka,3,2,1450,12500000,available,Ravi Kumar,9876531001
+PROP-1002,Green Acres Villa,villa,sale,4 Whitefield Main Road,Bengaluru,Karnataka,4,4,2800,28500000,under_offer,Nisha Rao,9876531002
+PROP-1003,Central Business Suite,commercial,rent,88 MG Road,Pune,Maharashtra,0,1,900,95000,available,Sanjay Shah,9876531003

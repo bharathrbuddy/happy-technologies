@@ -1,0 +1,4 @@
+﻿appointment_number,patient_name,phone,doctor,appointment_date,appointment_time,reason,status,fee
+APT-1001,Aarav Sharma,9876501001,Dr. Rao,2026-10-15,10:30,General consultation,scheduled,800
+APT-1002,Meera Nair,9876501002,Dr. Iyer,2026-10-15,11:00,Follow-up,confirmed,600
+APT-1003,Ishaan Patel,9876501003,Dr. Rao,2026-10-16,09:30,Health check,completed,1200

@@ -1,0 +1,3 @@
+﻿deal_name,client_name,property_name,deal_value,stage,expected_close_date,commission_rate
+Lakeview Purchase,Kavya Rao,Lakeview Residency,12500000,negotiation,2026-11-01,2
+Villa Acquisition,Nikhil Das,Green Acres Villa,28500000,contract,2026-11-15,2

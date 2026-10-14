@@ -1,0 +1,4 @@
+﻿reservation_number,guest_name,guest_phone,room_number,room_type,check_in,check_out,adults,children,status,total_amount,booking_source
+RES-1001,Priya Menon,9876521001,301,deluxe,2026-10-15,2026-10-18,2,0,confirmed,18000,direct
+RES-1002,Arjun Verma,9876521002,104,standard,2026-10-16,2026-10-17,1,0,reserved,4500,website
+RES-1003,Sara Khan,9876521003,502,suite,2026-10-14,2026-10-19,2,1,checked_in,37500,phone

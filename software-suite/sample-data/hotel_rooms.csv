@@ -1,0 +1,4 @@
+﻿room_number,room_type,floor,capacity,rate_per_night,status,amenities
+301,deluxe,3,2,6000,reserved,"Wi-Fi, breakfast"
+104,standard,1,2,4500,available,Wi-Fi
+502,suite,5,3,7500,occupied,"Wi-Fi, lounge"
